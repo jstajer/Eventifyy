@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Seznam událostí</h2>
+<ul>
+    {% for event in events %}
+        <li>
+            <a href="{% url 'event_detail' event.pk %}">{{ event.name }}</a>
+            <p>{{ event.start_date }} - {{ event.end_date }}</p>
+            <p>{{ event.description|truncatewords:10 }}</p>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
